@@ -11,7 +11,7 @@ let caseStudiesDB = [...INITIAL_CASE_STUDIES];
 let notificationsDB = [...INITIAL_NOTIFICATIONS];
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json({ limit: '15mb' }));
 
