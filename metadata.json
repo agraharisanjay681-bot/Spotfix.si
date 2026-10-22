@@ -1,0 +1,6 @@
+{
+  "name": "SPOT FIX",
+  "description": "See It. Snap It. Solve It. AI-powered civic issue detection and smart reporting platform for rural citizens and authorities.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

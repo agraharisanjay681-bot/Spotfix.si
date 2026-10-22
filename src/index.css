@@ -1,0 +1,443 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.011em;
+  }
+}
+
+/* =========================================================
+   DYNAMIC THEME VARIABLES
+   ========================================================= */
+
+:root {
+  /* Default: Ascent Theme (Light) */
+  --brand-primary: #0a3c40;
+  --brand-primary-hover: #06282b;
+  --brand-primary-fg: #ffffff;
+  --brand-secondary: #0d9488;
+  --brand-secondary-hover: #0f766e;
+  --brand-accent: #f59e0b;
+  --brand-accent-hover: #d97706;
+  --brand-accent-fg: #000000;
+  --brand-accent-light: #fef3c7;
+  --brand-accent-text: #92400e;
+  --brand-bg: #f2faf9;
+  --brand-card: #ffffff;
+  --brand-card-hover: #f7fdfc;
+  --brand-surface: #e4f4f2;
+  --brand-border: #c8e8e4;
+  --brand-border-subtle: #dff2f0;
+  --brand-text-main: #042124;
+  --brand-text-secondary: #275256;
+  --brand-text-muted: #588084;
+  --brand-glow: rgba(13, 148, 136, 0.25);
+  --brand-shadow: 0 8px 30px -4px rgba(10, 60, 64, 0.08);
+}
+
+/* ---------------------------------------------------------
+   1. ASCENT (TEAL & AMBER) - Inspired by collaborative growth artwork
+   --------------------------------------------------------- */
+[data-theme="ascent"] {
+  --brand-primary: #0a3c40;
+  --brand-primary-hover: #052427;
+  --brand-primary-fg: #ffffff;
+  --brand-secondary: #0d9488;
+  --brand-secondary-hover: #0f766e;
+  --brand-accent: #f59e0b;
+  --brand-accent-hover: #d97706;
+  --brand-accent-fg: #000000;
+  --brand-accent-light: #fef3c7;
+  --brand-accent-text: #92400e;
+  --brand-bg: #f2faf9;
+  --brand-card: #ffffff;
+  --brand-card-hover: #f7fdfc;
+  --brand-surface: #e4f4f2;
+  --brand-border: #c8e8e4;
+  --brand-border-subtle: #dff2f0;
+  --brand-text-main: #042124;
+  --brand-text-secondary: #275256;
+  --brand-text-muted: #588084;
+  --brand-glow: rgba(13, 148, 136, 0.25);
+  --brand-shadow: 0 8px 30px -4px rgba(10, 60, 64, 0.08);
+}
+
+[data-theme="ascent"].dark,
+.dark[data-theme="ascent"],
+.dark [data-theme="ascent"] {
+  --brand-primary: #14b8a6;
+  --brand-primary-hover: #2dd4bf;
+  --brand-primary-fg: #041d20;
+  --brand-secondary: #0d9488;
+  --brand-secondary-hover: #14b8a6;
+  --brand-accent: #fbbf24;
+  --brand-accent-hover: #f59e0b;
+  --brand-accent-fg: #041d20;
+  --brand-accent-light: #451a03;
+  --brand-accent-text: #fde68a;
+  --brand-bg: #05181a;
+  --brand-card: #0a2528;
+  --brand-card-hover: #0e3135;
+  --brand-surface: #103438;
+  --brand-border: #1a4f55;
+  --brand-border-subtle: #133c41;
+  --brand-text-main: #ecfdf5;
+  --brand-text-secondary: #99c2c5;
+  --brand-text-muted: #5d8e92;
+  --brand-glow: rgba(20, 184, 166, 0.35);
+  --brand-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------------------------------------
+   2. CLASSIC MONOCHROME - Modern slate minimalist
+   --------------------------------------------------------- */
+[data-theme="classic"] {
+  --brand-primary: #09090b;
+  --brand-primary-hover: #18181b;
+  --brand-primary-fg: #ffffff;
+  --brand-secondary: #52525b;
+  --brand-secondary-hover: #3f3f46;
+  --brand-accent: #0284c7;
+  --brand-accent-hover: #0369a1;
+  --brand-accent-fg: #ffffff;
+  --brand-accent-light: #e0f2fe;
+  --brand-accent-text: #075985;
+  --brand-bg: #f8fafc;
+  --brand-card: #ffffff;
+  --brand-card-hover: #f1f5f9;
+  --brand-surface: #f1f5f9;
+  --brand-border: #e2e8f0;
+  --brand-border-subtle: #f1f5f9;
+  --brand-text-main: #09090b;
+  --brand-text-secondary: #475569;
+  --brand-text-muted: #94a3b8;
+  --brand-glow: rgba(0, 0, 0, 0.15);
+  --brand-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="classic"].dark,
+.dark[data-theme="classic"],
+.dark [data-theme="classic"] {
+  --brand-primary: #f8fafc;
+  --brand-primary-hover: #e2e8f0;
+  --brand-primary-fg: #09090b;
+  --brand-secondary: #94a3b8;
+  --brand-secondary-hover: #cbd5e1;
+  --brand-accent: #38bdf8;
+  --brand-accent-hover: #7dd3fc;
+  --brand-accent-fg: #09090b;
+  --brand-accent-light: #082f49;
+  --brand-accent-text: #bae6fd;
+  --brand-bg: #090d16;
+  --brand-card: #0f172a;
+  --brand-card-hover: #1e293b;
+  --brand-surface: #1e293b;
+  --brand-border: #334155;
+  --brand-border-subtle: #1e293b;
+  --brand-text-main: #f8fafc;
+  --brand-text-secondary: #94a3b8;
+  --brand-text-muted: #64748b;
+  --brand-glow: rgba(255, 255, 255, 0.15);
+  --brand-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------------------------------------
+   3. EMERALD CIVIC - Living community green
+   --------------------------------------------------------- */
+[data-theme="emerald"] {
+  --brand-primary: #065f46;
+  --brand-primary-hover: #044e39;
+  --brand-primary-fg: #ffffff;
+  --brand-secondary: #059669;
+  --brand-secondary-hover: #047857;
+  --brand-accent: #f59e0b;
+  --brand-accent-hover: #d97706;
+  --brand-accent-fg: #000000;
+  --brand-accent-light: #fef3c7;
+  --brand-accent-text: #92400e;
+  --brand-bg: #f0fdf4;
+  --brand-card: #ffffff;
+  --brand-card-hover: #f7fee7;
+  --brand-surface: #dcfce7;
+  --brand-border: #bbf7d0;
+  --brand-border-subtle: #dcfce7;
+  --brand-text-main: #064e3b;
+  --brand-text-secondary: #166534;
+  --brand-text-muted: #15803d;
+  --brand-glow: rgba(16, 185, 129, 0.25);
+  --brand-shadow: 0 4px 20px -2px rgba(6, 95, 70, 0.08);
+}
+
+[data-theme="emerald"].dark,
+.dark[data-theme="emerald"],
+.dark [data-theme="emerald"] {
+  --brand-primary: #10b981;
+  --brand-primary-hover: #34d399;
+  --brand-primary-fg: #022c22;
+  --brand-secondary: #059669;
+  --brand-secondary-hover: #10b981;
+  --brand-accent: #fbbf24;
+  --brand-accent-hover: #f59e0b;
+  --brand-accent-fg: #022c22;
+  --brand-accent-light: #451a03;
+  --brand-accent-text: #fde68a;
+  --brand-bg: #022019;
+  --brand-card: #063428;
+  --brand-card-hover: #0a4436;
+  --brand-surface: #0b4e3e;
+  --brand-border: #146c57;
+  --brand-border-subtle: #0f5443;
+  --brand-text-main: #ecfdf5;
+  --brand-text-secondary: #a7f3d0;
+  --brand-text-muted: #6ee7b7;
+  --brand-glow: rgba(16, 185, 129, 0.35);
+  --brand-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------------------------------------
+   4. SUNSET AMBER - Solar urgency & vibrant warm tones
+   --------------------------------------------------------- */
+[data-theme="sunset"] {
+  --brand-primary: #9a3412;
+  --brand-primary-hover: #7c2d12;
+  --brand-primary-fg: #ffffff;
+  --brand-secondary: #ea580c;
+  --brand-secondary-hover: #c2410c;
+  --brand-accent: #eab308;
+  --brand-accent-hover: #ca8a04;
+  --brand-accent-fg: #000000;
+  --brand-accent-light: #fef9c3;
+  --brand-accent-text: #854d0e;
+  --brand-bg: #fff7ed;
+  --brand-card: #ffffff;
+  --brand-card-hover: #ffedd5;
+  --brand-surface: #fed7aa;
+  --brand-border: #fdba74;
+  --brand-border-subtle: #fed7aa;
+  --brand-text-main: #7c2d12;
+  --brand-text-secondary: #9a3412;
+  --brand-text-muted: #ea580c;
+  --brand-glow: rgba(234, 88, 12, 0.25);
+  --brand-shadow: 0 4px 20px -2px rgba(154, 52, 18, 0.08);
+}
+
+[data-theme="sunset"].dark,
+.dark[data-theme="sunset"],
+.dark [data-theme="sunset"] {
+  --brand-primary: #fb923c;
+  --brand-primary-hover: #fdba74;
+  --brand-primary-fg: #431407;
+  --brand-secondary: #ea580c;
+  --brand-secondary-hover: #fb923c;
+  --brand-accent: #facc15;
+  --brand-accent-hover: #eab308;
+  --brand-accent-fg: #431407;
+  --brand-accent-light: #422006;
+  --brand-accent-text: #fef08a;
+  --brand-bg: #1f0b05;
+  --brand-card: #34140a;
+  --brand-card-hover: #481d10;
+  --brand-surface: #572212;
+  --brand-border: #7c2d12;
+  --brand-border-subtle: #612310;
+  --brand-text-main: #fff7ed;
+  --brand-text-secondary: #fdba74;
+  --brand-text-muted: #ea580c;
+  --brand-glow: rgba(251, 146, 60, 0.35);
+  --brand-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------------------------------------
+   5. CYBER INDIGO - High-tech AI & vivid violet-cyan
+   --------------------------------------------------------- */
+[data-theme="cyber"] {
+  --brand-primary: #3730a3;
+  --brand-primary-hover: #312e81;
+  --brand-primary-fg: #ffffff;
+  --brand-secondary: #4f46e5;
+  --brand-secondary-hover: #4338ca;
+  --brand-accent: #06b6d4;
+  --brand-accent-hover: #0891b2;
+  --brand-accent-fg: #ffffff;
+  --brand-accent-light: #cffafe;
+  --brand-accent-text: #155e75;
+  --brand-bg: #f5f3ff;
+  --brand-card: #ffffff;
+  --brand-card-hover: #ede9fe;
+  --brand-surface: #ddd6fe;
+  --brand-border: #c4b5fd;
+  --brand-border-subtle: #ddd6fe;
+  --brand-text-main: #1e1b4b;
+  --brand-text-secondary: #3730a3;
+  --brand-text-muted: #6366f1;
+  --brand-glow: rgba(79, 70, 229, 0.25);
+  --brand-shadow: 0 4px 20px -2px rgba(55, 48, 163, 0.08);
+}
+
+[data-theme="cyber"].dark,
+.dark[data-theme="cyber"],
+.dark [data-theme="cyber"] {
+  --brand-primary: #818cf8;
+  --brand-primary-hover: #a5b4fc;
+  --brand-primary-fg: #1e1b4b;
+  --brand-secondary: #6366f1;
+  --brand-secondary-hover: #818cf8;
+  --brand-accent: #22d3ee;
+  --brand-accent-hover: #06b6d4;
+  --brand-accent-fg: #083344;
+  --brand-accent-light: #083344;
+  --brand-accent-text: #a5f3fc;
+  --brand-bg: #0b0d1e;
+  --brand-card: #141738;
+  --brand-card-hover: #1d214e;
+  --brand-surface: #262c68;
+  --brand-border: #3b438e;
+  --brand-border-subtle: #2b3272;
+  --brand-text-main: #f5f3ff;
+  --brand-text-secondary: #c7d2fe;
+  --brand-text-muted: #818cf8;
+  --brand-glow: rgba(129, 140, 248, 0.35);
+  --brand-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   DYNAMIC UTILITY CLASSES
+   ========================================================= */
+
+.theme-bg-main {
+  background-color: var(--brand-bg);
+}
+
+.theme-bg-card {
+  background-color: var(--brand-card);
+}
+
+.theme-bg-surface {
+  background-color: var(--brand-surface);
+}
+
+.theme-bg-primary {
+  background-color: var(--brand-primary);
+}
+
+.theme-bg-primary-hover:hover {
+  background-color: var(--brand-primary-hover);
+}
+
+.theme-text-primary-fg {
+  color: var(--brand-primary-fg);
+}
+
+.theme-text-primary {
+  color: var(--brand-primary);
+}
+
+.theme-border-primary {
+  border-color: var(--brand-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--brand-secondary);
+}
+
+.theme-text-secondary {
+  color: var(--brand-secondary);
+}
+
+.theme-bg-accent {
+  background-color: var(--brand-accent);
+}
+
+.theme-bg-accent-hover:hover {
+  background-color: var(--brand-accent-hover);
+}
+
+.theme-text-accent {
+  color: var(--brand-accent);
+}
+
+.theme-text-accent-fg {
+  color: var(--brand-accent-fg);
+}
+
+.theme-bg-accent-light {
+  background-color: var(--brand-accent-light);
+}
+
+.theme-text-accent-text {
+  color: var(--brand-accent-text);
+}
+
+.theme-text-main {
+  color: var(--brand-text-main);
+}
+
+.theme-text-sub {
+  color: var(--brand-text-secondary);
+}
+
+.theme-text-muted {
+  color: var(--brand-text-muted);
+}
+
+.theme-border {
+  border-color: var(--brand-border);
+}
+
+.theme-border-subtle {
+  border-color: var(--brand-border-subtle);
+}
+
+.theme-shadow {
+  box-shadow: var(--brand-shadow);
+}
+
+.theme-glow {
+  box-shadow: 0 0 25px var(--brand-glow);
+}
+
+/* Primary Button Preset with Smooth Hover */
+.btn-dynamic-primary {
+  background-color: var(--brand-primary);
+  color: var(--brand-primary-fg);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-dynamic-primary:hover {
+  background-color: var(--brand-primary-hover);
+  box-shadow: 0 6px 20px var(--brand-glow);
+  transform: translateY(-1px);
+}
+
+.btn-dynamic-primary:active {
+  transform: translateY(0);
+}
+
+/* Accent Button Preset */
+.btn-dynamic-accent {
+  background-color: var(--brand-accent);
+  color: var(--brand-accent-fg);
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-dynamic-accent:hover {
+  background-color: var(--brand-accent-hover);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Glassmorphic card styling */
+.glass-theme {
+  backdrop-filter: blur(12px);
+  background-color: var(--brand-card);
+  border: 1px solid var(--brand-border);
+}
+
+/* Dynamic active navigation pill */
+.nav-pill-active {
+  background-color: var(--brand-surface);
+  color: var(--brand-primary);
+  border-bottom: 2px solid var(--brand-primary);
+}
